@@ -33,8 +33,11 @@ export class PostsController {
     debugger
     const form = event.target
     const postData = {
+      // @ts-ignore
       title: form.title.value,
+      // @ts-ignore
       img: form.img.value,
+      // @ts-ignore
       description: form.description.value
     }
     try {
@@ -42,6 +45,7 @@ export class PostsController {
     } catch (error) {
       logger.log('⚠ Add Post', error)
     }
+    // @ts-ignore
     form.reset()
   }
 }
