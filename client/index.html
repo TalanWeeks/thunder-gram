@@ -14,8 +14,8 @@
 </head>
 
 <body>
-  <header class="sticky-top text-center">
-    <nav class="navbar navbar-dark navbar-expand bg-dark text-light p-3">
+  <header class="sticky-top text-center gradient-custom">
+    <nav class="navbar navbar-dark navbar-expand text-light p-3">
       <a class="navbar-brand " href="#">
         <img src="https://ih0.redbubble.net/image.36305869.4042/flat,750x1000,075,t.jpg" height="45" alt=""
           loading="">
@@ -35,9 +35,9 @@
     </nav>
   </header>
   <main class="hero-img">
-      <div class="container-fluid">
+      <div class="container-fluid visually-hidden" id="postForm">
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-4">
             <form class="bg-dark p-3 rounded shadow" onsubmit="app.postsController.addPosts()">
               <div class="form-group">
                 <label for="title">Title</label>
@@ -67,17 +67,17 @@
         </div>
       </div>
   </main>
-  <footer class="container-fluid justify-content-between fixed-bottom bg-dark text-light">
+  <footer class="container-fluid justify-content-between fixed-bottom gradient-custom text-light">
     <div class="row">
       <div class="col-md-3">
-        <img src="https://st3.depositphotos.com/1032749/13266/v/600/depositphotos_132660902-stock-illustration-add-plus-icon.jpg" height="45" alt="">
+        <img src="https://st3.depositphotos.com/1032749/13266/v/600/depositphotos_132660902-stock-illustration-add-plus-icon.jpg" class="selectable" onclick="app.postsController.togglePostForm()" height="45" alt="">
         
       </div>
       <div class="col-md-5">
       <div class="" id="authstate"></div>
       </div>
       <div class="col-md-3">
-        <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX13068803.jpg" height="45" alt="">
+        <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX13068803.jpg" class="selectable" height="45" alt="">
 
       </div>
     </div>   

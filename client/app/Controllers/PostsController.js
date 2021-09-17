@@ -24,6 +24,10 @@ export class PostsController {
     }
   }
 
+  togglePostForm() {
+    document.getElementById('postForm').classList.toggle('visually-hidden')
+  }
+
   async addPosts() {
     event.preventDefault()
     /**
