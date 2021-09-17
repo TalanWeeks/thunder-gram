@@ -21,10 +21,10 @@ export class PostsController extends BaseController {
     }
   }
 
-  async getPostById(req, res, next) {
+  async getPostById(req, res, next, postId) {
     try {
       const post = await postsService.getPostById(req.params.postId)
-      res.send(post)
+      res.send(postId)
     } catch (error) {
       next(error)
     }
