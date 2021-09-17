@@ -33,13 +33,37 @@
     </nav>
   </header>
   <main>
-      <div class="row">
-        <button class="btn btn-success" onclick="app.postController.addPosts()"></button>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-8">
+            <form class="bg-dark p-3 rounded shadow" onsubmit="app.postsController.addPosts()">
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class='form-control' name="title" id="title" minlength="3">
+              </div>
+              <div class="form-group">
+                <label for="img">Image</label>
+                <input type="text" class='form-control' name="img" id="img" minlength="3">
+              </div>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class='form-control' name="description" id="description" minlength="3">
+              </div>     
+              <div class="button-group"> 
+                <button type="reset" class="btn btn-secondary">Reset</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>         
+            </form>
+          </div>
+        </div>
+      </div>  
+      <div class="container-fluid" id="posts">
+        <div class="row d-flex justify-content-center align-items-center">
+          <div class="col-6-md">
+           <!-- card goes here -->
+          </div>
+        </div>
       </div>
-
-
-
-  
   </main>
   <footer class="container-fluid bg-dark text-light">
     <div class="row d-flex justify-content-between">
@@ -53,6 +77,8 @@
 
       </div>
     </div>
+
+   
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

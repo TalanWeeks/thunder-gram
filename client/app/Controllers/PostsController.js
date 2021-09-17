@@ -1,5 +1,8 @@
+/* eslint-disable no-return-assign */
+/* eslint-disable no-undef */
 import { ProxyState } from '../AppState.js'
 import { postsService } from '../Services/PostsService.js'
+import { logger } from '../Utils/Logger.js'
 
 function _drawPosts() {
   let template = ''
@@ -8,9 +11,16 @@ function _drawPosts() {
 }
 export class PostsController {
   constructor() {
-    ProxyState.on('post', _drawPosts)
-    postsService.getAllPosts()
-    _drawposts
+    ProxyState.on('posts', _drawPosts)
+    // _drawPosts()
+  }
+
+  async getAllPosts() {
+    try {
+      await postsService.getAllPosts()
+    } catch (error) {
+      logger.log('⚠ GET ALL POST', error)
+    }
   }
 
   async addPosts() {
@@ -28,7 +38,7 @@ export class PostsController {
     try {
       await postsService.addPosts(postData)
     } catch (error) {
-      console.log('⚠ Add Post', error)
+      logger.log('⚠ Add Post', error)
     }
     form.reset()
   }
