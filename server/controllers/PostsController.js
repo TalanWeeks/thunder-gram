@@ -10,6 +10,8 @@ export class PostsController extends BaseController {
       .get('/:postId', this.getPostById)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createPosts)
+      .put('/:postId', this.editPost)
+      .delete('/:postId', this.deletePost)
   }
 
   async getAllPosts(req, res, next) {
@@ -33,8 +35,26 @@ export class PostsController extends BaseController {
   async createPosts(req, res, next) {
     try {
       // !never trust the client
-      req.body.id = req.params.id
+      req.body.creatorId = req.userInfo.id
       const post = await postsService.createPost(req.body)
+      res.send(post)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async editPost(req, res, next) {
+    try {
+      const post = await postsService.editPost(req.params.postId, req.userInfo.id, req.body)
+      res.send(post)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async deletePost(req, res, next) {
+    try {
+      const post = await postsService.deletePost(req.params.postId, req.userInfo.id, req.body)
       res.send(post)
     } catch (error) {
       next(error)
