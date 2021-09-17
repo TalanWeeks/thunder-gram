@@ -4,9 +4,9 @@ import { BadRequest, Forbidden } from '../utils/Errors'
 
 class PostsService {
   async getPostById(postId) {
-    const post = await dbContext.Posts.findById({ _id: postId })
-    if (!postId) {
-      throw new BadRequest()
+    const post = await dbContext.Posts.findById(postId).populate('creator', 'name picture')
+    if (!post) {
+      throw new BadRequest('post not found')
     }
     return post
   }
