@@ -8,9 +8,9 @@ export class Post {
 
   get Template() {
     return /* html */ `
-    <div class="card">
-              <div class="card-body">
-                <img src="${this.img}" alt=":(">
+    <div class="card my-4">
+              <div class="card-body p-0">
+                <img class="img-fluid" src="${this.img}" alt=":(">
               </div>
               <div class="container-fluid card-footer">
                 <div class="row">
@@ -18,7 +18,7 @@ export class Post {
                     <title>"${this.title}"</title>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row text-center">
                   <div class="col-2">
                     <!-- add on click to add a like to this post -->
                     <span>"heart icon"</span>

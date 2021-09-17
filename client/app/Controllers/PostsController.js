@@ -13,6 +13,7 @@ export class PostsController {
   constructor() {
     ProxyState.on('posts', _drawPosts)
     // _drawPosts()
+    this.getAllPosts()
   }
 
   async getAllPosts() {
@@ -29,6 +30,7 @@ export class PostsController {
      * @type {HTMLFormElement}
      */
     // @ts-ignore
+    debugger
     const form = event.target
     const postData = {
       title: form.title.value,
