@@ -4,6 +4,7 @@ export class Post {
     this.title = postData.title
     this.img = postData.img
     this.description = postData.description
+    this.likes = postData.likes
   }
 
   get Template() {
@@ -21,8 +22,8 @@ export class Post {
                 <div class="row text-center">
                   <div class="col-2">
                     <!-- add on click to add a like to this post -->
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/169px-Heart_coraz%C3%B3n.svg.png" height="45" alt="">
-
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/169px-Heart_coraz%C3%B3n.svg.png" onclick="app.postsController.addLikes()" height="45" alt="">
+                    <span>${this.likes}</span>
                   </div>
                   <div class="col-8">
                     <span>"${this.description}"</span>
@@ -30,7 +31,6 @@ export class Post {
                   <div class="col-2">
                     <!-- add on click to add a comment to this post -->
                     <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX13068803.jpg" height="45" alt="">
-
                   </div>
                 </div>
               </div>
