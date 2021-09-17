@@ -30,9 +30,10 @@ export class PostsController {
      * @type {HTMLFormElement}
      */
     // @ts-ignore
-    debugger
+
     const form = event.target
     const postData = {
+      // @ts-ignore
       title: form.title.value,
       img: form.img.value,
       description: form.description.value
