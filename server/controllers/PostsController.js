@@ -11,7 +11,7 @@ export class PostsController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createPosts)
       .put('/:postId', this.editPost)
-      .delete('/:postId', this.deletePost)
+      .delete('/:postId', this.removedPost)
   }
 
   async getAllPosts(req, res, next) {
@@ -52,9 +52,9 @@ export class PostsController extends BaseController {
     }
   }
 
-  async deletePost(req, res, next) {
+  async removedPost(req, res, next) {
     try {
-      const post = await postsService.deletePost(req.params.postId, req.userInfo.id, req.body)
+      const post = await postsService.removedPost(req.params.postId, req.userInfo.id)
       res.send(post)
     } catch (error) {
       next(error)

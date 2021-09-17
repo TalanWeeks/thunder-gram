@@ -32,5 +32,14 @@ class PostsService {
     await post.save()
     return post
   }
+
+  async removedPost(postId, userId) {
+    const post = await this.getPostById(postId)
+    if (userId !== post.creatorId.toString()) {
+      throw new Forbidden('you cant delete this')
+    }
+    await post.remove()
+    return post
+  }
 }
 export const postsService = new PostsService()
