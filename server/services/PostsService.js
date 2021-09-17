@@ -6,7 +6,7 @@ class PostsService {
   async createPost(postData, UserId) {
     const post = await dbContext.Posts.create(postData)
     if (!UserId) {
-      throw new Forbidden()
+      throw new Forbidden('this is not your account')
     }
     return post
   }

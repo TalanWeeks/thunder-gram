@@ -9,7 +9,7 @@ export class PostsController extends BaseController {
       .get('', this.getAllPosts)
       .get('/:id', this.getPostById)
       .use(Auth0Provider.getAuthorizedUserInfo)
-      .post('/:id', this.createPosts)
+      .post('', this.createPosts)
   }
 
   async getAllPosts(req, res, next) {
