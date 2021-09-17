@@ -11,7 +11,7 @@ class PostsService {
   }
 
   async addPosts(postData) {
-    const res = await api.post('posts', postData)
+    const res = await api.post('api/posts', postData)
     logger.log(res)
     ProxyState.posts = [...ProxyState.posts, new Post(res.data)]
   }
