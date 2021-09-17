@@ -5,8 +5,15 @@ export const CommentSchema = new Schema({
   Comment: {
     type: String,
     minlength: 3,
-    require: true,
-    lowercase: true
+    required: true,
+    creatorId: { type: Schema.Types.ObjectId, ref: 'Account', required: true },
+    postId: { type: Schema.Types.ObjectId, ref: 'Post', required: true }
   }
+}, { timestamps: true, toJSON: { virtuals: true } })
 
+CommentSchema.virtual('creator', {
+  localField: 'creatorId',
+  foreignField: '_id',
+  ref: 'Account',
+  justOne: true
 })
