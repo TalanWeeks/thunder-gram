@@ -43,6 +43,11 @@ export class Post {
                     <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX13068803.jpg" class="selectable" onclick="app.postsController.toggleCommentsForm()" height="45" alt="">
                   </div>
                 </div>
+                <div class="row my-2 ">
+                <div  id="comments">
+                
+                </div>
+                </div>
               </div>
             </div>
             <form class="visually-hidden" onsubmit="app.commentController.createComment('${this.id}')" id="commentForm">

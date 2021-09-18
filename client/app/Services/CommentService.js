@@ -11,7 +11,7 @@ class CommentService {
   }
 
   async addComment(commentData) {
-    const res = await api.post('api/posts/comments', commentData)
+    const res = await api.post('api/thundergram/posts/comments', commentData)
     logger.log(res)
 
     ProxyState.comments = [...ProxyState.comments, new Comment(res.data)]

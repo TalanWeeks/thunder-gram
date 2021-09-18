@@ -2,10 +2,9 @@ import { ProxyState } from '../AppState.js'
 import { commentService } from '../Services/CommentService.js'
 
 function _drawComment() {
-  const comments = ProxyState.comments
-  let commentTemplate = ''
-  comments.forEach(comment => commentTemplate += comment.commentTemplate)
-  document.getElementById('comments').innerHTML = commentTemplate
+  let template = ''
+  ProxyState.comments.forEach(c => template += c.Template)
+  document.getElementById('comments').innerHTML = template
 }
 
 export class CommentController {
@@ -18,7 +17,6 @@ export class CommentController {
   }
 
   createComment(postId) {
-    debugger
     // @ts-ignore
     event.preventDefault()
     const form = event.target
