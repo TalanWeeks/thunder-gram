@@ -5,14 +5,17 @@ export class Post {
     this.img = postData.img
     this.description = postData.description
     this.likes = postData.likes
+    // this.account.name = postData.account.creatorId
   }
 
   get Template() {
     return /* html */ `
-      <div class="col-md-3">
-        <div class="card  my-2" >
-          <div class="card-header p-0">
-          <button class="btn btn-danger" onclick="app.postsController.deletePost('${this.id}')">X</button>
+      <div class="col-md-3 m-5">
+        <div class="card  my-2 card-border" >
+          <div class="card-header d-flex justify-content-between p-0">
+          
+         
+          <button class="btn btn-info" onclick="app.postsController.deletePost('${this.id}')">X</button>
           </div>
 
               <div class="card-body card-custom p-0">
@@ -42,16 +45,16 @@ export class Post {
                 </div>
               </div>
             </div>
-            <form class="visually-hidden" onsubmit="" id="commentForm">
+            <form class="visually-hidden" onsubmit="app.commentController.createComment('${this.id}')" id="commentForm">
             <div class="row">
               <div class="col-12">
                 <div class="form-group">
-                  <label for="title" class="text-light">Comment</label>
-                  <input type="text" class='form-control' name="title" id="title" minlength="3">
-                  <div class="button-group"> 
-                    <button type="reset" class="btn btn-secondary">Reset</button>
-                    <button type="submit" class="btn btn-primary">Post</button>
-                  </div> 
+                  <label for="description" class="text-light">Comment:</label>
+                  <input type="text" class='form-control' name="description" id="description" minlength="3">
+                </div> 
+                <div class="button-group"> 
+                  <button type="reset" class="btn btn-secondary">Reset</button>
+                  <button type="submit" class="btn btn-primary">Post</button>
                 </div>
               </div>
             </div>

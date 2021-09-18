@@ -1,5 +1,5 @@
 .hero-img{
-  background-image: url('https://thumbs.gfycat.com/BelovedTinyEasternnewt-size_restricted.gif');
+  background-color: #0e0e0e;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -24,4 +24,8 @@
 .card-custom{
   height: 20rem;
   
+}
+
+.card-border{
+  box-shadow: 0px 0px 12px 4px #6a11cb;
 }
