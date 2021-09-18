@@ -5,7 +5,7 @@ import { logger } from '../Utils/Logger.js'
 
 class CommentService {
   async getAllComments() {
-    const res = await api.get('api/posts/comments')
+    const res = await api.get('api/thundergram/posts/comments')
     logger.log(res)
     ProxyState.comments = res.data.map(c => new Comment(c))
   }
@@ -18,8 +18,13 @@ class CommentService {
   }
 
   async removeComment(id) {
-    const res = await api.delete(`api/posts/${id}`)
-    logger.log('deleted', res)
+    debugger
+    try {
+      const res = await api.delete(`api/thundergram/posts/comments/${id}`)
+      logger.log('deleted', res)
+    } catch (error) {
+      logger.log(error)
+    }
     ProxyState.comments = ProxyState.comments.filter(comment => comment.id !== id)
   }
 }

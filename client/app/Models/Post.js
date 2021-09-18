@@ -1,3 +1,5 @@
+import { ProxyState } from '../AppState.js'
+
 export class Post {
   constructor(postData) {
     this.id = postData.id
@@ -12,8 +14,7 @@ export class Post {
     return /* html */ `
       <div class="col-md-3 m-5">
         <div class="card  my-2 card-border" >
-          <div class="card-header d-flex justify-content-between p-0">
-          
+          <div class="card-header d-flex justify-content-between p-0">        
          
           <button class="btn btn-info" onclick="app.postsController.deletePost('${this.id}')">X</button>
           </div>
@@ -40,17 +41,17 @@ export class Post {
                   </div>
                   <div class="col-2">
                     <!-- add on click to add a comment to this post -->
-                    <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX13068803.jpg" class="selectable" onclick="app.postsController.toggleCommentsForm()" height="45" alt="">
+                    <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX13068803.jpg" class="selectable" onclick="app.postsController.toggleCommentsForm('${this.id}')" height="45" alt="">
                   </div>
                 </div>
                 <div class="row my-2 ">
-                <div  id="comments">
-                
+                <div id="comments-${this.id}">
+                  ${this.comments}
                 </div>
                 </div>
               </div>
             </div>
-            <form class="visually-hidden" onsubmit="app.commentController.createComment('${this.id}')" id="commentForm">
+            <form class="visually-hidden" onsubmit="app.commentController.createComment('${this.id}')" id="commentForm-${this.id}">
             <div class="row">
               <div class="col-12">
                 <div class="form-group">
@@ -66,5 +67,13 @@ export class Post {
             </form>
           </div>
     `
+  }
+
+  get comments() {
+    let template = ''
+    const comments = ProxyState.comments.filter(c => c.postId === this.id)
+    console.log('post comments', comments)
+    comments.forEach(c => { template += `<div>${c.description}</div>` })
+    return template
   }
 }

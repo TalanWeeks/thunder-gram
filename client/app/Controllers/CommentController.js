@@ -3,13 +3,14 @@ import { commentService } from '../Services/CommentService.js'
 
 function _drawComment() {
   let template = ''
-  ProxyState.comments.forEach(c => template += c.Template)
-  document.getElementById('comments').innerHTML = template
+  ProxyState.comments.forEach(c => template += c.commentTemplate)
+  // document.getElementById('comments').innerHTML = template
 }
 
 export class CommentController {
   constructor() {
-    ProxyState.on('comments', _drawComment)
+    // ProxyState.on('comments', _drawComment)
+    commentService.getAllComments()
   }
 
   addComment(commentData) {
@@ -22,7 +23,7 @@ export class CommentController {
     const form = event.target
     const commentData = {
       description: form.description.value,
-      id: postId
+      postId: postId
     }
     commentService.addComment(commentData)
     form.reset()

@@ -12,7 +12,7 @@ function _drawPosts() {
 export class PostsController {
   constructor() {
     ProxyState.on('posts', _drawPosts)
-    // _drawPosts()
+    ProxyState.on('comments', _drawPosts)
     this.getAllPosts()
   }
 
@@ -28,8 +28,8 @@ export class PostsController {
     document.getElementById('postForm').classList.toggle('visually-hidden')
   }
 
-  toggleCommentsForm() {
-    document.getElementById('commentForm').classList.toggle('visually-hidden')
+  toggleCommentsForm(postId) {
+    document.getElementById('commentForm-' + postId).classList.toggle('visually-hidden')
   }
 
   async addPosts() {
