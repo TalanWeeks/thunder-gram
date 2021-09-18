@@ -15,14 +15,14 @@
 
 <body>
   <header class="sticky-top text-center gradient-custom">
-    <nav class="navbar navbar-dark navbar-expand text-light p-3">
-      <a class="navbar-brand " href="#">
+    <nav class=" navbar-dark navbar-expand text-center text-light p-3">
+      
         <img src="https://ih0.redbubble.net/image.36305869.4042/flat,750x1000,075,t.jpg" height="45" alt=""
           loading="">
         <span class="ml-2">ThunderGram</span>
         <img src="https://ih0.redbubble.net/image.36305869.4042/flat,750x1000,075,t.jpg" height="45" alt=""
           loading="">
-      </a>
+      
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -44,7 +44,7 @@
                 <input type="text" class='form-control' name="title" id="title" minlength="3">
               </div>
               <div class="form-group">
-                <label for="img">Image</label>
+                <label for="img">Image Url</label>
                 <input type="text" class='form-control' name="img" id="img" minlength="3">
               </div>
               <div class="form-group">
@@ -53,22 +53,22 @@
               </div>     
               <div class="button-group"> 
                 <button type="reset" class="btn btn-secondary">Reset</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Post</button>
               </div>         
             </form>
           </div>
         </div>
       </div>  
       <div class="container-fluid" >
-        <div class="row d-flex justify-content-center align-items-center my-2">
-          <div class="col-md-6" id="posts">
+        <div class="row  my-2" id="posts">
+          
            <!-- card goes here -->
-          </div>
+          
         </div>
       </div>
   </main>
-  <footer class="container-fluid justify-content-between fixed-bottom gradient-custom text-light">
-    <div class="row">
+  <footer class="  container-fluid justify-content-between fixed-bottom gradient-custom text-light">
+    <div class="row ">
       <div class="col-md-3">
         <img src="https://st3.depositphotos.com/1032749/13266/v/600/depositphotos_132660902-stock-illustration-add-plus-icon.jpg" class="selectable" onclick="app.postsController.togglePostForm()" height="45" alt="">
         
@@ -76,11 +76,13 @@
       <div class="col-md-5">
       <div class="" id="authstate"></div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 justify-content-start">
         <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX13068803.jpg" class="selectable" height="45" alt="">
 
       </div>
-    </div>   
+    </div>  
+
+
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

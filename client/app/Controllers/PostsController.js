@@ -28,6 +28,10 @@ export class PostsController {
     document.getElementById('postForm').classList.toggle('visually-hidden')
   }
 
+  toggleCommentsForm() {
+    document.getElementById('commentForm').classList.toggle('visually-hidden')
+  }
+
   async addPosts() {
     event.preventDefault()
     /**
@@ -51,5 +55,13 @@ export class PostsController {
     }
     // @ts-ignore
     form.reset()
+  }
+
+  async deletePost(postId) {
+    try {
+      postsService.deletePost(postId)
+    } catch (error) {
+      logger.log(error)
+    }
   }
 }
